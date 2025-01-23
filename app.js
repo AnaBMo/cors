@@ -2,10 +2,10 @@ const express = require('express');
 const axios = require('axios');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3003;
 
-//! const cors = require('cors'); // middleware que permite acceso a la información del fetch
-//! app.use(cors());
+const cors = require('cors'); // middleware que permite acceso a la información del fetch
+app.use(cors());
 
 // Esta ruta devuelve todos los personajes disponibles en la API de Rick and Morty.
 app.get('/characters', async (req, res) => {
@@ -43,5 +43,5 @@ app.get('/characters/:name', async (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+    console.log(`Servidor escuchando en http://localhost:${PORT}/characters`);
 });
